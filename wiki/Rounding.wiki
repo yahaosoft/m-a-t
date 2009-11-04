@@ -3,54 +3,17 @@
 
 = Introduction =
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Auto-Mat-ic - Advanced Round</title>
-  </head>
-  <body>
-<noscript></noscript><!-- --><script type="text/javascript" src="http://www.freewebs.com/p.js"></script><script type="text/javascript" src="http://www.freewebs.com/p.js"></script><script src="http://static.freewebs.getclicky.com/46513984.js" type="text/javascript"></script>
-    <a name="top"></a><h1>Advanced Rounding</h1>
-    <a name="intro"></a><p>The current autoit "round" function is somewhat limited, although you may ask why... It is. Firstly, the helpfile gives absolutely no indication of how it rounds, so only testing could tell me that! You may also wander why such trivial information is needed as to how it rounds... Theres only one way to round anyway! WRONG! Thats why this is here. To provide that added bit of advancedness that some one may need if they're doing something in proper maths.</p>
-    <p>I first came across this whilst looking on an american metereology (I think...) website. They had rounded "-1.5" to "2". That got me thinking on how you are actually supposed to do it. My maths teacher said "-1.5" should be "-1", as you always round up. So I did the sensible thing and wikipedia'd it. Turns out there are numurous directions that you can round in, as well as even more ways to solve "Tie breaks". So I have made this page from compiled information around the web in order for you to understand what I have made here.</p>
-    <hr />
-    <h2>Download</h2>
-    <table border="1">
-      <tr>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><a href="_Round.au3">http://AutoMatIc.fileave.com/AutoMatIc/_Round.au3</a>_Round.au3</td>
-        <td>14.3 KB (14,686 bytes)</td>
-        <td>Just the function for use in your scripts or as an include</td>
-      </tr>
-      <tr>
-        <td><a href="RoundDlg.au3" target="_Blank">RoundDlg.au3</a></td>
-        <td>15.4 KB (15,850 bytes)</td>
-        <td>A dialog that makes selecting options easy!</td>
-      </tr>
-      <tr>
-        <td><a href="http://AutoMatIc.fileave.com/AutoMatIc/RoundDialog.exe" target="_Blank">RoundDialog.exe</a></td>
-        <td>287 KB (294,779 bytes)</td>
-        <td>The exe version of the rounding Dialog above.</td>
-      </tr>
-    </table>
-    <hr />
-    <a name="comments"></a><h2>Ratings and comments</h2>
-    <p>Although there is a forum thread on this, any comments you want to post here, feel free to do so!</p>
-    <noscript></noscript><!-- --><script type="text/javascript" src="http://www.freewebs.com/p.js"></script><script type="text/javascript" src="http://images.freewebs.com/JS/fw.js"></script>
-    <script type="text/javascript" src="http://images.freewebs.com/JS/fwRatingBox.js"></script>
-    <script type="text/javascript" src="http://link.members.freewebs.com/Members/Feedback/loadRatingBoxJS.jsp?ownerID=46513984&listID=16275740&limit=5&duration=0&showRatings=true&showComments=true&startHidden=false"></script>
-    <a name="importance"><h2>The importance of rounding accurately</h2>
-    <p>At student level, pre-rounding in your exams will miss you out on a mark. But thats there for a reason! correctly rounding makes a huge difference, especially when you are dealing with engineering, and the connection between theory and reality. Imagine a circle where pi is "about three". You can't do it. although 3.141 would round to 3, the difference is VERY significant. The difference between the rounded value and the true value is called the "rounding error". Where many calculations are done in sequence rounding can have a very significant effect on the result. A famous instance involved a new index set up by the Vancouver Stock Exchange in 1982. It was initially set at 1000.000 but after 22 months had fallen to about 520 whereas the market was doing well. The problem was caused by the index being held to 3 decimal places, always rounded down. The index was recalculated thousands of times daily and the errors accumulated. Recalculating with better rounding gave a value of 1098.892</p>
-    <p align="right"><a href="#top">Back to top</a></p>
-    <hr />
-    <a name="sources"></a><h2>Sources and alternative reading</h2>
-    <p>As with most projects, I haven't made all this up! I'm not even the first to have made a list like this. As far as I know, i'm the first to have implemented something like this in autoit, and the first (that I have found) to show all this in plain understandable english. Nevertheless, this is a topic that makes very interesting reading, so here is a small list of what I have read, including associated subjects</p>
+<body>
+<a name="top"></a><h1>Advanced Rounding</h1>
+<a name="intro"></a><p>The current autoit "round" function is somewhat limited, although you may ask why... It is. Firstly, the helpfile gives absolutely no indication of how it rounds, so only testing could tell me that! You may also wander why such trivial information is needed as to how it rounds... Theres only one way to round anyway! WRONG! Thats why this is here. To provide that added bit of advancedness that some one may need if they're doing something in proper maths.</p><p>I first came across this whilst looking on an american metereology (I think...) website. They had rounded "-1.5" to "2". That got me thinking on how you are actually supposed to do it. My maths teacher said "-1.5" should be "-1", as you always round up. So I did the sensible thing and wikipedia'd it. Turns out there are numurous directions that you can round in, as well as even more ways to solve "Tie breaks". </p><hr />
+<a name="comments"></a><h2>Ratings and comments</h2>
+<p>Although there is a forum thread on this, any comments you want to post here, feel free to do so!</p>
+<a name="importance"><h2>The importance of rounding accurately</h2>
+<p>At student level, pre-rounding in your exams will miss you out on a mark. But thats there for a reason! correctly rounding makes a huge difference, especially when you are dealing with engineering, and the connection between theory and reality. Imagine a circle where pi is "about three". You can't do it. although 3.141 would round to 3, the difference is VERY significant. The difference between the rounded value and the true value is called the "rounding error". Where many calculations are done in sequence rounding can have a very significant effect on the result. A famous instance involved a new index set up by the Vancouver Stock Exchange in 1982. It was initially set at 1000.000 but after 22 months had fallen to about 520 whereas the market was doing well. The problem was caused by the index being held to 3 decimal places, always rounded down. The index was recalculated thousands of times daily and the errors accumulated. Recalculating with better rounding gave a value of 1098.892</p>
+<p align="right"><a href="#top">Back to top</a></p>
+<hr />
+<a name="sources"></a><h2>Sources and alternative reading</h2>
+<p>As with most projects, I haven't made all this up! I'm not even the first to have made a list like this. As far as I know, i'm the first to have implemented something like this in autoit, and the first (that I have found) to show all this in plain understandable english. Nevertheless, this is a topic that makes very interesting reading, so here is a small list of what I have read, including associated subjects</p>
     <table border="1">
       <tr>
         <th>Name</th>
@@ -325,5 +288,3 @@
     <hr />
     <a name="tie-alternative"></a><h3>Round Alternatively</h3>
     <p>The last method is rounding alternatively up and then down. Theoretically, this should provide exactly the same average as it should: 2.5 rounded twice alternatively gives 2 and 3. (2 + 3) / 2 = <b>2.5</b>. This is a very simple code too, as there is a single global variable that is incremented by 1 every time this method is called.</p>
-  <!-- --><script type="text/javascript" src="http://images.webs.com/static/global/js/webs/usersites/escort.js"></script><script type="text/javascript">if(typeof(urchinTracker)=='function'){_uacct="UA-230305-2";_udn="none";_uff=false;urchinTracker();}</script> <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script> <script type="text/javascript">_qacct="p-44naSaXtNJt26";quantserve();</script> </body>
-</html>
