@@ -82,8 +82,8 @@ As with most projects, I haven't made all this up! I'm not even the first to hav
 <li><a href="#tie-alternative">Alternative</a></li>
 </ul>
 </li>
-</ul>
 </li>
+</ul>
 </ul>
 
 ----
