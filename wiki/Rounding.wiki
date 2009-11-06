@@ -62,12 +62,12 @@ As with most projects, I haven't made all this up! I'm not even the first to hav
 </li>
 <li><a href="#direction-intro">Directions</a>
 <ul>
-<li><a href="#direction-nearest">Nearest</a><li>
+<li><a href="#direction-nearest">Nearest</a></li>
 <li><a href="#direction-up">Up</a></li>
 <li><a href="#direction-down">Down</a></li>
 <li><a href="#direction-trunc">Towards zero</a></li>
 <li><a href="#direction-ntrunc">Away from zero</a></li>
-<li><a href="#direction-dither">Dithering</a><li>
+<li><a href="#direction-dither">Dithering</a></li>
 </ul>
 </li>
 <li><a href="#tie-intro">Tie Break Methods</a>
@@ -82,8 +82,8 @@ As with most projects, I haven't made all this up! I'm not even the first to hav
 <li><a href="#tie-alternative">Alternative</a></li>
 </ul>
 </li>
-</li>
 </ul>
+</li>
 </ul>
 
 ----
