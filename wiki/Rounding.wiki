@@ -18,7 +18,7 @@ As with most projects, I haven't made all this up! I'm not even the first to hav
 <tr>
 <th>Name</th>
 <th>Link/url</th>
-<th>Author</th>]
+<th>Author</th>
 <th>Notes</th>
 </tr>
 <tr>
@@ -48,7 +48,6 @@ As with most projects, I haven't made all this up! I'm not even the first to hav
 <li><a href="#top">Advanced Rounding</a>
 <ul>
 <li><a href="#intro">Introduction</a></li>
-<li><a href="#download">Download</a></li>
 <li><a href="#comments">Ratings and comments</a></li>
 <li><a href="#importance">The importance of rounding</a></li>
 <li><a href="#sources">Sources and alternative reading</a></li>
