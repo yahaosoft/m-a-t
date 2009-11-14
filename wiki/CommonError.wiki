@@ -1,5 +1,5 @@
 #summary Description of some common autoit errors and their true meanings.
-#labels Featured
+#labels Deprecated
 
 = Common Errors =
 AutoIt's error checking sometimes returns encrypted messages that need to be de-ciphered before you can understand the error and correct. A lot of the time I find I can draw easy links between what the error message is and what the actual cause of the error is - and thats what i'm going to show on this page. Hopefully this should help you trace errors a lot more efficiently, and stop many of the "No idea whats wrong..." threads that are currently cluttering up the general help and support forum.
