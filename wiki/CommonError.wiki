@@ -27,11 +27,11 @@ MsgBox ((0, "", ""^ ERROR
 }}}
 
 <ul>
-<li>"C:\test.au3" is the file name, and believe it or not, this is VERY important information. When you begin to build large multi file projects, errors can spring out at you from millions of different places, so its important you know exactly where to look.</li>
-<li>"(1)" is the line number (in this case the first line.) I usually open up the document and scroll to the line before I even consider what the error is as most errors are becouse of a previous error!</li>
-<li>"; ==>" is worthless, but makes it look pretty</li>
-<li>"Error parsing function call.:" This is the description of the error, it can be a lot of things, and usually isn't very descriptive!</li>
-<li>"MsgBox ((0, "", "")" is the line in full.</li>
+<li>`"C:\test.au3"` is the file name, and believe it or not, this is VERY important information. When you begin to build large multi file projects, errors can spring out at you from millions of different places, so its important you know exactly where to look.</li>
+<li>`"(1)"` is the line number (in this case the first line.) I usually open up the document and scroll to the line before I even consider what the error is as most errors are becouse of a previous error!</li>
+<li>`"; ==>"` is worthless, but makes it look pretty</li>
+<li>`"Error parsing function call.:"` This is the description of the error, it can be a lot of things, and usually isn't very descriptive!</li>
+<li>`"MsgBox ((0, "", "")"` is the line in full.</li>
 <li>`"MsgBox ((0, "", ""^ ERROR"` is the line, but trimmed and with the `"^ Error"` sign showing the offset of the error</li>
 </ul>
 == Error parsing function call. ==
