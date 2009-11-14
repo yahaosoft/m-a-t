@@ -32,7 +32,7 @@ MsgBox ((0, "", ""^ ERROR
 <li>"; ==>" is worthless, but makes it look pretty</li>
 <li>"Error parsing function call.:" This is the description of the error, it can be a lot of things, and usually isn't very descriptive!</li>
 <li>"MsgBox ((0, "", "")" is the line in full.</li>
-<li>"MsgBox ((0, "", ""^ ERROR" is the line, but trimmed and with the "^Error" sign showing the offset of the error</li>
+<li>"MsgBox ((0, "", ""^ ERROR" is the line, but trimmed and with the "^ Error" sign showing the offset of the error</li>
 </ul>
 == Error parsing function call. ==
 This is essentially telling you that you have unbalanced brackets. As you can see from the example below, it is a very easy mistake to make, but also a very easy to solve one. The only other cunfusing element is that it sets the "^ERROR" to the end of the string, whereas the problem is usually at the beginning.
