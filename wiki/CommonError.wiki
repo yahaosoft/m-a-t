@@ -58,7 +58,8 @@ MsgBox ) (0, "", "")
 
 == Error in expression. ==
 Usually a typo, and very similar to error parsing function call. I find it occurs mostly when I enter double commas (",").
-{{{C:\test.au3 (1) : ==> Error in expression.:
+{{{
+C:\test.au3 (1) : ==> Error in expression.:
 MsgBox (0, "",, "")
 MsgBox (0, "",^ ERROR
 }}}
