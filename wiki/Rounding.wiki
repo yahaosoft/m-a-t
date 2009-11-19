@@ -1,5 +1,5 @@
+#summary A description of some more advanced rounding techniques
 #labels Featured
-#A description of some more advanced rounding techniques
 
 = Advanced Rounding =
 The current autoit "round" function is somewhat limited, although you may ask why... It is. Firstly, the helpfile gives absolutely no indication of how it rounds, so only testing could tell me that! You may also wander why such trivial information is needed as to how it rounds... Theres only one way to round anyway! WRONG! Thats why this is here. To provide that added bit of advancedness that some one may need if they're doing something in proper maths.<p>I first came across this whilst looking on an american metereology (I think...) website. They had rounded "-1.5" to "2". That got me thinking on how you are actually supposed to do it. My maths teacher said "-1.5" should be "-1", as you always round up. So I did the sensible thing and wikipedia'd it. Turns out there are numurous directions that you can round in, as well as even more ways to solve "Tie breaks".
