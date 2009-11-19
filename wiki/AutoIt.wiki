@@ -1,5 +1,5 @@
+#summary description of AutoIt
 #labels Featured
-#description of AutoIt
 
 = AutoIt =
 
