@@ -4,7 +4,7 @@
 = Functions and UDF's =
 
 || Name || Author || type || Forum thread ||
-|| Primes suite || Jennico || [http://www.autoitscript.com/forum/index.php?showtopic=83091 83091] ||
+|| Primes suite || Jennico || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=83091 83091] ||
 || Advanced rounding || Mat || function || [http://www.autoitscript.com/forum/index.php?showtopic=102686 102686] ||
 || Root || Mat || function || [http://www.autoitscript.com/forum/index.php?showtopic=98160 98160] ||
 || Graph UDF || andyBiochem || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=79412 79412] ||
