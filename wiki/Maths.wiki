@@ -17,9 +17,8 @@
 
 || Name || Author || Forum Thread ||
 || Triangle solver V2.3 || Dantay9 || [http://www.autoitscript.com/forum/index.php?showtopic=98893 98893] ||
-|| Triangle solver V2 || Mat || ||
 || Triangle solver || Monoceres || [http://www.autoitscript.com/forum/index.php?showtopic=70057 70057] ||
-|| Quadratic Solver || Mat || ||
+|| Quadratic Solver || Mat || [http://www.autoitscript.com/forum/index.php?showtopic=106319 106319] ||
 || Simultaneus Equations || eThirteen || [http://www.autoitscript.com/forum/index.php?showtopic=86539 86539] ||
 
 = Calculators =
