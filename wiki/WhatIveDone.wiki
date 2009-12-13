@@ -1,8 +1,6 @@
 #summary An awesome song. Completely unrelated though...
 #labels Featured
 
-= Introduction =
-
 I keep having to search for a script that I know I did at some point in the past, and is n longer on my hard drive, this is a much easier to use list :)
 
 || Name || Description || Forum Thread ||
