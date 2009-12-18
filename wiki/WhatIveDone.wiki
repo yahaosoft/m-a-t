@@ -4,6 +4,7 @@
 I keep having to search for a script that I know I did at some point in the past, and is n longer on my hard drive, this is a much easier to use list :)
 
 || *Name* || *Description* || *Forum Thread* ||
+||{{{{ Binary Clock }}}||{{{ Seeing BillTheCreators made me wanna do this }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=106972 106972] ||
 ||{{{ Set default text for an edit }}}||{{{ Surprisingly hard to explain... }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=106799 106799] ||
 ||{{{ StringsInStr }}}||{{{ Find more than one string in a string. }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=106798 106798] ||
 ||{{{ Quadratic solver }}}||{{{ More Maths :) }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=106319 106319] ||
