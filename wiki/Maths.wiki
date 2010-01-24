@@ -13,6 +13,7 @@
 || Convert Decimal To fraction || Malkey || Function || [http://www.autoitscript.com/forum/index.php?showtopic=106551 106551] ||
 || ToBase || WideBoyDixon || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=93742 93742] ||
 || Extended Maths || Mat || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=103242 103242] ||
+|| Polynomials || Mat || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=108803 108803] ||
 
 = Programs =
 
