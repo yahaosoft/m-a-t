@@ -26,6 +26,7 @@
 = Calculators =
 
 || Name || Author || Forum Thread ||
+|| Simple skinable calculator || Yashied || [http://www.autoitscript.com/forum/index.php?showtopic=111139 111139] ||
 || Mini Calculator V2 || Mat || [http://www.autoitscript.com/forum/index.php?showtopic=102014 102014] ||
 || Mini Calculator || Mat || [http://www.autoitscript.com/forum/index.php?showtopic=97238 97238] ||
 || Another Calculator || Dantay9 || [http://www.autoitscript.com/forum/index.php?showtopic=91757 91757] ||
