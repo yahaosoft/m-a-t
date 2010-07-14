@@ -4,6 +4,7 @@
 I keep having to search for a script that I know I did at some point in the past, and is n longer on my hard drive, this is a much easier to use list :)
 
 || *Name* || *Description* || *Forum Thread* || *Download link* ||
+||{{{ NumToWord }}}||{{{ Converts digits to a human string. }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=117156 117156] || [http://code.google.com/p/m-a-t/downloads/detail?name=NumToWord.au3 NumToWord.au3] ||
 || [http://code.google.com/p/au3int/ AutoIt3 Interpreter] ||{{{ The interpreter for AutoIt }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=114330 114330] || [http://code.google.com/p/m-a-t/downloads/detail?name=Au3Int.zip Au3Int.zip] ||
 ||{{{ GUIPager.au3 }}}||{{{ Creation and handling of pager controls }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=111438 111438] || [http://code.google.com/p/m-a-t/downloads/detail?name=GUIPager.zip GUIPager.zip] ||
 ||{{{ Polynomials functions }}}||{{{ Sorting, formatting, generating rtf + html etc. }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=108803 108803] || [http://code.google.com/p/m-a-t/downloads/detail?name=Polynomial.zip Polynomial.zip] ||
