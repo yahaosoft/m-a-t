@@ -18,6 +18,7 @@
 = Programs =
 
 || Name || Author || Forum Thread ||
+|| 3D Axis || Yashied || [http://www.autoitscript.com/forum/index.php?showtopic=107180 107180] ||
 || Triangle solver V2.3 || Dantay9 || [http://www.autoitscript.com/forum/index.php?showtopic=98893 98893] ||
 || Triangle solver || Monoceres || [http://www.autoitscript.com/forum/index.php?showtopic=70057 70057] ||
 || Quadratic Solver || Mat || [http://www.autoitscript.com/forum/index.php?showtopic=106319 106319] ||
