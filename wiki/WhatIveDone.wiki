@@ -4,6 +4,7 @@
 I keep having to search for a script that I know I did at some point in the past, and is n longer on my hard drive, this is a much easier to use list :)
 
 || *Name* || *Description* || *Forum Thread* || *Download link* ||
+|| [http://code.google.com/p/consoleau3/ Console.au3] ||{{{ WinAPI wrapper for using the console }}}|| N/A || [http://code.google.com/p/consoleau3/downloads/list Download page] ||
 ||{{{ Kinematics }}}||{{{ A simple 2D kinematics modeler }}}|| N/A || [http://code.google.com/p/m-a-t/downloads/detail?name=Kinematics.zip Kinematics.zip] ||
 ||{{{ StringRegExpReplaceCallback }}}||{{{ Like most languages :) }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=119374 119374] || [http://code.google.com/p/m-a-t/downloads/detail?name=StringRegExpReplaceCallback.zip StringRegExpReplaceCallback.zip] ||
 ||{{{ NumToWord }}}||{{{ Converts digits to a human string. }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=117156 117156] || [http://code.google.com/p/m-a-t/downloads/detail?name=NumToWord.au3 NumToWord.au3] ||
