@@ -4,6 +4,7 @@
 I keep having to search for a script that I know I did at some point in the past, and is n longer on my hard drive, this is a much easier to use list :)
 
 || *Name* || *Description* || *Forum Thread* || *Download link* ||
+||{{{ GUIListView.au3 additions }}}||{{{ Additional functions for using tile view }}}|| [http://www.autoitscript.com/forum/topic/index.php?showtopic=123470 123470] || [http://code.google.com/p/m-a-t/downloads/detail?name=GUIListView_Additions.zip GUIListView_Additions.zip] ||
 ||{{{ CmdLine.au3 }}}||{{{ Making command line arguments easy }}}|| [http://www.autoitscript.com/forum/topic/index.php?showtopic=123438 123438] || N/A ||
 || [http://code.google.com/p/consoleau3/ Console.au3] ||{{{ WinAPI wrapper for using the console }}}|| N/A || [http://code.google.com/p/consoleau3/downloads/list Download page] ||
 ||{{{ Kinematics }}}||{{{ A simple 2D kinematics modeler }}}|| N/A || [http://code.google.com/p/m-a-t/downloads/detail?name=Kinematics.zip Kinematics.zip] ||
