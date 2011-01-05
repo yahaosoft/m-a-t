@@ -4,7 +4,7 @@
 = Common Errors =
 AutoIt's error checking sometimes returns encrypted messages that need to be de-ciphered before you can understand the error and correct. A lot of the time I find I can draw easy links between what the error message is and what the actual cause of the error is - and thats what i'm going to show on this page. Hopefully this should help you trace errors a lot more efficiently, and stop many of the "No idea whats wrong..." threads that are currently cluttering up the general help and support forum.
 
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="5" />
 
 == The basics of the error dialog ==
 Once you know what the dialogs trying to tell you, it makes life much easier, and since this remains completely undocumented throughout AutoIt, I think its a good idea to explain it here.
@@ -16,15 +16,13 @@ C:\test.au3 (1) : ==> Error parsing function call.:
 MsgBox ((0, "", "")
 MsgBox ((0, "", ""^ ERROR
 }}}
+  * `"C:\test.au3"` is the file name, and believe it or not, this is VERY important information. When you begin to build large multi file projects, errors can spring out at you from millions of different places, so its important you know exactly where to look.
+  * `"(1)"` is the line number (in this case the first line.) I usually open up the document and scroll to the line before I even consider what the error is as most errors are becouse of a previous error!
+  * `"; ==>"` is worthless, but makes it look pretty
+  * `"Error parsing function call.:"` This is the description of the error, it can be a lot of things, and usually isn't very descriptive!
+  * `"MsgBox ((0, "", "")"` is the line in full.
+  * `"MsgBox ((0, "", ""^ ERROR"` is the line, but trimmed and with the `"^ Error"` sign showing the offset of the error
 
-<ul>
-<li>`"C:\test.au3"` is the file name, and believe it or not, this is VERY important information. When you begin to build large multi file projects, errors can spring out at you from millions of different places, so its important you know exactly where to look.</li>
-<li>`"(1)"` is the line number (in this case the first line.) I usually open up the document and scroll to the line before I even consider what the error is as most errors are becouse of a previous error!</li>
-<li>`"; ==>"` is worthless, but makes it look pretty</li>
-<li>`"Error parsing function call.:"` This is the description of the error, it can be a lot of things, and usually isn't very descriptive!</li>
-<li>`"MsgBox ((0, "", "")"` is the line in full.</li>
-<li>`"MsgBox ((0, "", ""^ ERROR"` is the line, but trimmed and with the `"^ Error"` sign showing the offset of the error</li>
-</ul>
 == Error parsing function call. ==
 This is essentially telling you that you have unbalanced brackets. As you can see from the example below, it is a very easy mistake to make, but also a very easy to solve one. The only other cunfusing element is that it sets the "^ERROR" to the end of the string, whereas the problem is usually at the beginning.
 {{{
@@ -141,7 +139,6 @@ Func _Error($sMsg, $iCol = 0, $iScriptLine = @ScriptLine, $sScriptFile = @Script
                 $sLine, _
                 StringLeft($sLine, $iCol)))
     Else
-        ; Can't get the line when compiled.
         $sFull = StringFormat("%s (%d) : ==> %s", _
                 $sScriptFile, _
                 $iScriptLine, _
