@@ -4,16 +4,7 @@
 = Common Errors =
 AutoIt's error checking sometimes returns encrypted messages that need to be de-ciphered before you can understand the error and correct. A lot of the time I find I can draw easy links between what the error message is and what the actual cause of the error is - and thats what i'm going to show on this page. Hopefully this should help you trace errors a lot more efficiently, and stop many of the "No idea whats wrong..." threads that are currently cluttering up the general help and support forum.
 
-<ol>
-<li>Common Errors</li>
-<li>The basics of the error dialog</li>
-<li>Error parsing function call</li>
-<li>Error in expression.</li>
-<li>Unable to parse line</li>
-<li>Unterminated string</li>
-<li>Missing separator character after keyword</li>
-<li>Badly formated variable or macro</li>
-</ol>
+<wiki:toc max_depth="1" />
 
 == The basics of the error dialog ==
 Once you know what the dialogs trying to tell you, it makes life much easier, and since this remains completely undocumented throughout AutoIt, I think its a good idea to explain it here.
@@ -126,4 +117,42 @@ Alternatively you have entered a non word character ("A-Z" or "a-z" or "_" or 0-
 C:\test.au3 (1) : ==> Unable to parse line.:
 MsgBox (default, "", @IPAddress!)
 MsgBox (default, "", @IPAddress^ ERROR
+}}}
+
+== Non-syntax errors ==
+The hardest kind of bug to get to the bottom of is the one that doesn't produce an error. AutoIt won't pick up bad but valid code, so the only solution is to check yourself.
+
+AutoIt has one built in way to check for errors easily... The @error (and sometime @extended) macro. In addition to checking the return value, this lets you test success or failure of most (if not all) functions.
+
+The first step is to get a good framework in place, that usually means a simple function called `_Error` that shows the MsgBox... I tend to mke it as much like the AutoIt one as possible, it tries to format it the same, and even checks the command line for `/ErrToSTDOut`. Due to the way command line parameters are used in AutoIt, it is possible to use macro's such as @ScriptLine and @ScriptFullPath as optional parameters and get the right values. The only conditition is that the error must follow right after the line where the error occured, or you can set $iScriptLine to less than zero to stop it checking the line.
+
+{{{
+Func _Error($sMsg, $iCol = 0, $iScriptLine = @ScriptLine, $sScriptFile = @ScriptFullPath)
+    Local $sLine, $sFull
+
+    $iScriptLine -= 1
+
+    If (Not @Compiled) And ($iScriptLine > 0) Then
+        $sLine = FileReadLine($sScriptFile, $iScriptLine)
+        $sFull = StringFormat("%s (%d) : ==> %s:\r\n%s\r\n%s^ ERROR", _
+                $sScriptFile, _
+                $iScriptLine, _
+                $sMsg, _
+                $sLine, _
+                StringLeft($sLine, $iCol)))
+    Else
+        ; Can't get the line when compiled.
+        $sFull = StringFormat("%s (%d) : ==> %s", _
+                $sScriptFile, _
+                $iScriptLine, _
+                $sMsg))
+    EndIf
+
+
+    If StringInStr($CmdLineRaw, " /ErrToSTDOut", 2) Then
+        ConsoleWrite($sFull & @LF)
+    Else
+        MsgBox(16, "AutoIt Error", $sFull)
+    EndIf
+EndFunc   ;==>_Error
 }}}
