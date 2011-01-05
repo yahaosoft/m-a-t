@@ -2,10 +2,7 @@
 #labels Featured
 
 = Common Errors =
-AutoIt's error checking sometimes returns encrypted messages that need to be de-ciphered before you can understand the error and correct. A lot of the time I find I can draw easy links between what the error message is and what the actual cause of the error is - and thats what i'm going to show on this page. Hopefully this should help you trace errors a lot more efficiently, and stop many of the "No idea whats wrong..." threads that are currently cluttering up the general help and support forum.
-
-<wiki:toc max_depth="5" />
-
+AutoIt's error checking sometimes returns encrypted messages that need to be de-ciphered before you can understand the error and correct. A lot of the time I find I can draw easy links between what the error message is and what the actual cause of the error is - and thats what i'm going to show on this page. Hopefully this should help you trace errors a lot more efficiently, and stop many of the "No idea whats wrong..." threads that are currently cluttering up the general help and support forum.<wiki:toc max_depth="5" />
 == The basics of the error dialog ==
 Once you know what the dialogs trying to tell you, it makes life much easier, and since this remains completely undocumented throughout AutoIt, I think its a good idea to explain it here.
 
