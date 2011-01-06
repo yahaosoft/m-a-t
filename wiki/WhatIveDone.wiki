@@ -8,7 +8,7 @@ I keep having to search for a script that I know I did at some point in the past
 ||{{{ CmdLine.au3 }}}||{{{ Making command line arguments easy }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=123438 123438] || N/A ||
 || [http://code.google.com/p/consoleau3/ Console.au3] ||{{{ WinAPI wrapper for using the console }}}|| N/A || [http://code.google.com/p/consoleau3/downloads/list Download page] ||
 ||{{{ Kinematics }}}||{{{ A simple 2D kinematics modeler }}}|| N/A || [http://code.google.com/p/m-a-t/downloads/detail?name=Kinematics.zip Kinematics.zip] ||
-||{{{ StringRegExpReplaceCallback }}}||{{{ Like most languages :) }}}|| [http://www.autoitscript.com/forum/topic/123438-command-line-argument-management/ 119374] || [http://code.google.com/p/m-a-t/downloads/detail?name=StringRegExpReplaceCallback.zip StringRegExpReplaceCallback.zip] ||
+||{{{ StringRegExpReplaceCallback }}}||{{{ Like most languages :) }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=119374 119374] || [http://code.google.com/p/m-a-t/downloads/detail?name=StringRegExpReplaceCallback.zip StringRegExpReplaceCallback.zip] ||
 ||{{{ HTTP Send with POST }}}||{{{ Using winhttp.winhttprequest.5.1 }}}|| [http://www.autoitscript.com/forum/topic/119346-website-code-question/page__view__findpost__p__829768 119346] || N/A ||
 ||{{{ NumToWord }}}||{{{ Converts digits to a human string. }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=117156 117156] || [http://code.google.com/p/m-a-t/downloads/detail?name=NumToWord.au3 NumToWord.au3] ||
 || [http://code.google.com/p/au3int/ AutoIt3 Interpreter] ||{{{ The interpreter for AutoIt }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=114330 114330] || [http://code.google.com/p/au3int/downloads/list Download page] ||
