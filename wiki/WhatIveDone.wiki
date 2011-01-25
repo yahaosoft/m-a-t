@@ -46,7 +46,7 @@ I keep having to search for a script that I know I did at some point in the past
 ||{{{ Sudoku solver }}}||{{{ Solves up to hard* using 3 methods. }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=98002 98002] || [http://code.google.com/p/m-a-t/downloads/detail?name=SudokuSolver.zip SudokuSolver.zip] ||
 ||{{{ XP Logon dialog. }}}||{{{ So now you can log in when your not logged out!! }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=97508 97508] ||{{{ NA }}}||
 ||{{{ Script debugger... }}}||{{{ Just for on the fly debugging of scripts }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=97454 97454] ||{{{ See TheAutoItTool for an upgraded version }}}||
-||{{{ _TaskBar.au3 }}}||{{{ Management of the taskbar and creation of items. }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=97323 97323] || [http://code.google.com/p/m-a-t/downloads/detail?name=Taskbar.zip Taskbar.zip] ||
+||{{{ _TaskBar.au3 }}}||{{{ Management of the taskbar and creation of items. }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=97323 97323] || [http://code.google.com/p/m-a-t/downloads/detail?name=TaskBar.au3 Taskbar.au3] ||
 ||{{{ Mini calculator }}}||{{{ but extremely powerful and efficient! }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=97238 97238] ||{{{ NA }}}||
 ||{{{ Scientific form conversion }}}||{{{ I'm sure its somewhere, but heres mine. }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=97008 97008] ||{{{ NA }}}||
 ||{{{ Easy GUI }}}||{{{ makes your life easier. (For me anyhow...) }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=97005 97005] || [http://code.google.com/p/m-a-t/downloads/detail?name=EasyGUI.zip EasyGUI.zip] ||
