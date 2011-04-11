@@ -15,7 +15,7 @@
 || Primes suite || Jennico || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=83091 83091] ||
 || New Maths Functions || Trancexx || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=82722 82722] ||
 || Graph UDF || andyBiochem || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=79412 79412] ||
-|| _isprime || RazerM || Function || [http://www.autoitscript.com/forum/topic/24643-isprime-function 24643] ||
+|| `_`isprime || RazerM || Function || [http://www.autoitscript.com/forum/topic/24643-isprime-function 24643] ||
 
 = Programs =
 || Name || Author || Forum Thread ||
