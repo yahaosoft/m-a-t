@@ -4,24 +4,27 @@
 = Functions and UDF's =
 
 || Name || Author || type || Forum thread ||
-|| Primes suite || Jennico || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=83091 83091] ||
+|| NumToWord || Mat || Function || [http://www.autoitscript.com/forum/topic/117156-numtoword/ 117156] ||
+|| Polynomials || Mat || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=108803 108803] ||
+|| Convert Decimal To fraction || Malkey || Function || [http://www.autoitscript.com/forum/index.php?showtopic=106551 106551] ||
+|| Extended Maths || Mat || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=103242 103242] ||
 || Advanced rounding || Mat || function || [http://www.autoitscript.com/forum/index.php?showtopic=102686 102686] ||
 || Root || Mat || function || [http://www.autoitscript.com/forum/index.php?showtopic=98160 98160] ||
-|| Graph UDF || andyBiochem || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=79412 79412] ||
-|| New Maths Functions || Trancexx || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=82722 82722] ||
-|| BigNum's || Eukalyptus || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=83529 83529] ||
-|| Convert Decimal To fraction || Malkey || Function || [http://www.autoitscript.com/forum/index.php?showtopic=106551 106551] ||
 || ToBase || WideBoyDixon || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=93742 93742] ||
-|| Extended Maths || Mat || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=103242 103242] ||
-|| Polynomials || Mat || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=108803 108803] ||
+|| BigNum's || Eukalyptus || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=83529 83529] ||
+|| Primes suite || Jennico || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=83091 83091] ||
+|| New Maths Functions || Trancexx || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=82722 82722] ||
+|| Graph UDF || andyBiochem || UDF || [http://www.autoitscript.com/forum/index.php?showtopic=79412 79412] ||
+|| _isprime || RazerM || Function || [http://www.autoitscript.com/forum/topic/24643-isprime-function 24643] ||
 
 = Programs =
-
 || Name || Author || Forum Thread ||
+|| Graph || Mat || [http://www.autoitscript.com/forum/topic/125584-graph-theory/ 125584] ||
 || 3D Axis || Yashied || [http://www.autoitscript.com/forum/index.php?showtopic=107180 107180] ||
 || Triangle solver V2.3 || Dantay9 || [http://www.autoitscript.com/forum/index.php?showtopic=98893 98893] ||
 || Triangle solver || Monoceres || [http://www.autoitscript.com/forum/index.php?showtopic=70057 70057] ||
 || Quadratic Solver || Mat || [http://www.autoitscript.com/forum/index.php?showtopic=106319 106319] ||
+|| Linear equations solver || oMBRa || [http://www.autoitscript.com/forum/topic/95591-system-of-linear-equations-resolver/ 95591] ||
 || Simultaneus Equations || eThirteen || [http://www.autoitscript.com/forum/index.php?showtopic=86539 86539] ||
 
 = Calculators =
@@ -38,3 +41,4 @@
 || Amazing Calculator || LimeSeed || [http://www.autoitscript.com/forum/index.php?showtopic=79462 79462] ||
 || Calculator || LimeSeed || [http://www.autoitscript.com/forum/index.php?showtopic=79100 79100] ||
 || Cool Calculator || John09 || [http://www.autoitscript.com/forum/index.php?showtopic=74858 74858] ||
+|| Plain Command Line Matrix Calculator || Malkey || [http://www.autoitscript.com/forum/topic/63635-plain-command-line-matrix-calculator/ 63635] ||
