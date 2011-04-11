@@ -36,3 +36,5 @@
 || Amazing Calculator || LimeSeed || [http://www.autoitscript.com/forum/index.php?showtopic=79462 79462] ||
 || Calculator || LimeSeed || [http://www.autoitscript.com/forum/index.php?showtopic=79100 79100] ||
 || Cool Calculator || John09 || [http://www.autoitscript.com/forum/index.php?showtopic=74858 74858] ||
+|| CalculatorMr || AZJIO || [http://www.autoitscript.com/forum/topic/117619-calculatormr/ 117619] ||
+|| Mini calculator || Sak || [http://www.autoitscript.com/forum/topic/127394-mini-calculator/ 127394] ||
