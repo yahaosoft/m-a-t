@@ -27,6 +27,8 @@
 = Calculators =
 
 || Name || Author || Forum Thread ||
+|| Mini calculator || Sak || [http://www.autoitscript.com/forum/topic/127394-mini-calculator/ 127394] ||
+|| CalculatorMr || AZJIO || [http://www.autoitscript.com/forum/topic/117619-calculatormr/ 117619] ||
 || Simple skinable calculator || Yashied || [http://www.autoitscript.com/forum/index.php?showtopic=111139 111139] ||
 || Mini Calculator V2 || Mat || [http://www.autoitscript.com/forum/index.php?showtopic=102014 102014] ||
 || Mini Calculator || Mat || [http://www.autoitscript.com/forum/index.php?showtopic=97238 97238] ||
@@ -36,5 +38,3 @@
 || Amazing Calculator || LimeSeed || [http://www.autoitscript.com/forum/index.php?showtopic=79462 79462] ||
 || Calculator || LimeSeed || [http://www.autoitscript.com/forum/index.php?showtopic=79100 79100] ||
 || Cool Calculator || John09 || [http://www.autoitscript.com/forum/index.php?showtopic=74858 74858] ||
-|| CalculatorMr || AZJIO || [http://www.autoitscript.com/forum/topic/117619-calculatormr/ 117619] ||
-|| Mini calculator || Sak || [http://www.autoitscript.com/forum/topic/127394-mini-calculator/ 127394] ||
