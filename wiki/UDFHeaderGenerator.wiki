@@ -7,7 +7,8 @@ This is a Lua script based on one by Valik that will create the standard UDF fun
 Installing has a number of steps that it's better for a human to do, as it may differ slightly between SciTE versions.
 
   # Open up `AutoItTools.lua`, which can be found at: `%AutoItDir%\SciTE\LUA\AutoItTools.lua`. You are then looking for the line that says `function AutoItTools:CreateFunctionHeader(s)`. You want to replace the two functions `CreateFunctionHeader` and `InsertUDFHeader` with the two here. Replace `defAuthor` while you are there:
-{{{--------------------------------------------------------------------------------
+{{{
+--------------------------------------------------------------------------------
 -- CreateFunctionHeader(s, p)
 --
 -- Creates a function header for an AutoIt 3 function.
