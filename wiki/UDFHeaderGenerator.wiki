@@ -1,6 +1,6 @@
 #summary For AutoIt
 #labels Featured
-This is a Lua script based on one by Valik that will create the standard UDF function header when used and the caret is on a function definition line.
+This is a Lua script based on one by Valik that will create the standard UDF function header when used and the caret is on a function definition line. Thanks also to Wraithdu and Jos for suggestions and fixes :)
 
 =To Install=
 
