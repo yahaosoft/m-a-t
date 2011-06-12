@@ -8,9 +8,18 @@ Installing has a number of steps that it's better for a human to do, as it may d
 
   # Open up `AutoItTools.lua`, which can be found at: `%AutoItDir%\SciTE\LUA\AutoItTools.lua`. You are then looking for the line that says `function AutoItTools:CreateFunctionHeader(s)`. You want to replace the two functions `CreateFunctionHeader` and `InsertUDFHeader` with the two here. Replace `defAuthor` while you are there:
 {{{
+--------------------------------------------------------------------------------
+-- CreateFunctionHeader(s)
+--
+-- Creates the UDF function header from a function definition line.
+--
+-- Tool: For use by AutoItTools:InsertUDFHeader.
+--------------------------------------------------------------------------------
 function AutoItTools:CreateFunctionHeader(s)
+
     -- Change these :)
     local defAuthor = "Matt Diesel (Mat)"    -- Initial Author value
+
     local defLineMax = 129                   -- Max length of line. AutoIt standard is 129.
     local defSplit = 21                      -- Default index for '-' after param.
 
@@ -36,7 +45,7 @@ function AutoItTools:CreateFunctionHeader(s)
         outStart = "INTERNAL_USE_ONLY"
     end
 
-    outSyntax = name .. "( "
+    outSyntax = name .. "("
 
     local paramSynt = ""
     local iOptionals = 0
@@ -56,7 +65,7 @@ function AutoItTools:CreateFunctionHeader(s)
                     if paramSynt ~= "" then
                         paramSynt = paramSynt .. "[, "
                     else
-                        paramSynt = paramSynt .. "[ "
+                        paramSynt = paramSynt .. "["
                     end
 
                     iOptionals = iOptionals + 1
@@ -83,7 +92,7 @@ function AutoItTools:CreateFunctionHeader(s)
                         fBroken = true
                     end
                 end
-                paramSynt = paramSynt .. parameter .. " "
+                paramSynt = paramSynt .. parameter
 
                 local paramtype = parameter:sub(2, 2)
                 local isarray = false
@@ -126,7 +135,7 @@ function AutoItTools:CreateFunctionHeader(s)
         outParams = "None"
     end
 
-    outSyntax = outSyntax .. paramSynt .. string.rep("]", iOptionals) .. " )"
+    outSyntax = outSyntax .. paramSynt .. string.rep("]", iOptionals) .. ")"
 
     local res = "; #" .. outStart .. "# " .. string.rep("=", defLineMax - 5 - outStart:len()) .. nl
     res = res .. "; Name ..........: " .. outName .. nl
@@ -134,7 +143,7 @@ function AutoItTools:CreateFunctionHeader(s)
     res = res .. "; Syntax ........: " .. outSyntax .. nl
     res = res .. "; Parameters ....: " .. outParams .. nl
     res = res .. "; Return values .: " .. outReturn .. nl
-    res = res .. "; Author ........: " .. outAuthor .. nl
+    res = res .. "; Author(s) .....: " .. outAuthor .. nl
     res = res .. "; Modified ......: " .. outModify .. nl
     res = res .. "; Remarks .......: " .. outRemarks .. nl
     res = res .. "; Related .......: " .. outRelated .. nl
@@ -145,28 +154,57 @@ function AutoItTools:CreateFunctionHeader(s)
     return res
 end -- CreateFunctionHeader()
 
+--------------------------------------------------------------------------------
+-- InsertUDFHeader
+--
+-- Inserts a UDF header for the line the cursor is currently on.
+--
+-- Tool: AutoItTools:InsertUDFHeader $(au3) Alt+U Make header
+--------------------------------------------------------------------------------
 function AutoItTools:InsertUDFHeader()
     local line, pos = editor:GetCurLine()
     local pos = editor.CurrentPos - pos
     local lineNum = editor:LineFromPosition(pos)
-    local from, to, name = line:find("[Ff][Uu][Nn][Cc][%s]*([%w%s_]*)")
+    local from, to = line:find("[Ff][Uu][Nn][Cc][%s]*([%w%s_]*)")
     if to ~= nil then
-        local pfrom, pto, pname = line:find("(%(.-[%)_])")
+        -- remove comments
+        from, to =  line:find(";")
+        while from ~= nil do
+            if editor.StyleAt[pos+from] == SCE_AU3_COMMENT then
+                line = string.sub (line, 1 , from-1)   -- remove comment
+                from = nil                             -- exit loop
+            else
+                from, to =  line:find(";",from+1)      -- find next ; as this one is not a comment
+            end
+        end
+
+        local pfrom, pto = line:find("%(")    -- check for opening parenthesis
         local i = 0
         if pto ~= nil then
-            while pname:find("_%s*$") do    -- Found an underscore, so need to get the next line, too
+            while line:find("%s+_%s*$") do    -- found a line continuation
+                line = line:gsub("%s+_%s*$", "")    -- remove it
                 i = i + 1
-                line = line .. editor:GetLine(lineNum+i)
+                local tmp = editor:GetLine(lineNum+i)
+                tmp = tmp:gsub("^%s*", "")    -- remove leading white space
+                tmp = tmp:gsub("%s*;.*$", "")    -- remove comments
+                line = line .. tmp
             end
             editor:Home()
+            line = line:gsub("[\r\n]", "")    -- remove line breaks
             editor:AddText(self:CreateFunctionHeader(line))
         else
             print("Argument list not found, unable to insert header.")
         end
     else
-        print("Function definition not found, unable to insert header.")
+		from, to = line:find("[Gg][Ll][Oo][Bb][Aa][Ll]%s+[Cc][Oo][Nn][Ss][Tt]%s+$[Tt][Aa][Gg](%w+)%s*=%s*\"(.+)\"")
+		if to ~= nil then
+			-- It's a structure
+			print("Not implemented: Structures")
+		else
+			print("Function or struct definition not found, unable to insert header.")
+		end
     end
-end -- InsertUDFHeader()
+end -- InsertFunctionHeader()
 }}}
   # Next you need to add it to the tools list. To do that open up `au3.properties` (the easiest way is from SciTE by going to the Options menu). It doesn't matter where too much, but I usually insert the following code just before the line that says `# Commands to for Help F1` (I'm not sure what that lines supposed to say btw). If the number `42` happens to be taken, just replace it with a new vacant number.
 {{{
