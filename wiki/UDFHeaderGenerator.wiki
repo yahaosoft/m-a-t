@@ -129,31 +129,35 @@ function AutoItTools:CreateFunctionHeader(s, p)
 
                 local sAdd
                 if paramtype == "i" then
-                    sAdd = "n integer"
+                    sAdd = "integer"
                 elseif paramtype == "f" then
-                    sAdd = " boolean"
+                    sAdd = "boolean"
                 elseif paramtype == "b" then
-                    sAdd = " binary"
+                    sAdd = "binary"
                 elseif paramtype == "n" then
-                    sAdd = " floating point number"
+                    sAdd = "floating point number"
                 elseif paramtype == "s" then
-                    sAdd = " string"
+                    sAdd = "string"
                 elseif paramtype == "h" then
-                    sAdd = " handle"
+                    sAdd = "handle"
                 elseif paramtype == "v" then
-                    sAdd = " variant"
+                    sAdd = "variant"
                 elseif paramtype == "p" then
-                    sAdd = " pointer"
+                    sAdd = "pointer"
                 elseif paramtype == "t" then
-                    sAdd = " dll struct"
+                    sAdd = "dll struct"
                 else
-                    sAdd = "n unknown"
+                    sAdd = "unknown"
                 end
 
                 if isarray then
                     outParams = outParams .. "An array of " .. sAdd .. "s."
                 else
-                    outParams = outParams .. "A" .. sAdd .. " value."
+					if sAdd:sub(1, 1):find("[AEIOUaeiou]") ~= nil then
+						outParams = outParams .. "An " .. sAdd .. " value."
+					else
+						outParams = outParams .. "A " .. sAdd .. " value."
+					end
                 end
 
 				if optional ~= "" and optional ~= nil then
@@ -353,5 +357,40 @@ command.shortcut.42.$(au3)=Alt+U
 command.42.$(au3)=InvokeTool AutoItTools.InsertUDFHeader
 }}}
   # The tool should now show up in the menu... Try it on a function definition statement and see.
+
+Example output:
+{{{
+; #FUNCTION# ====================================================================================================================
+; Name ..........: _Test_Params
+; Description ...:
+; Syntax ........: _Test_Params(Byref $ai, Const Byref $i, Const $h[, $p = 42])
+; Parameters ....: $ai                  - [in/out] An array of integers.
+;                  $i                   - [in/out and const] An integer value.
+;                  $h                   - [const] A handle value.
+;                  $p                   - [optional] A pointer value. Default is 42.
+; Return values .: None
+; Author ........:
+; Modified ......:
+; Remarks .......:
+; Related .......:
+; Link ..........:
+; Example .......: No
+; ===============================================================================================================================
+Func _Test_Params(ByRef $ai, ByRef Const $i, Const $h, $p = 42)
+EndFunc   ;==>_Test_Params
+
+; #STRUCTURE# ===================================================================================================================
+; Name ..........: $tagTESTSTRUCT
+; Description ...:
+; Fields ........: p                    - A ptr value.
+;                  i                    - An int value.
+;                  h                    - A HANDLE value.
+;                  ai                   - An int[42] value.
+; Author ........:
+; Remarks .......:
+; Related .......:
+; ===============================================================================================================================
+Global Const $tagTESTSTRUCT = "align 4;ptr p;int i;HANDLE h;int[42] ai"
+}}}
 
 Mat
