@@ -4,6 +4,7 @@
 I keep having to search for a script that I know I did at some point in the past, and is n longer on my hard drive, this is a much easier to use list :)
 
 || *Name* || *Description* || *Forum Thread* || *Download link* ||
+||{{{ GUIFinder V2 }}}||{{{ A much improved UDF for making finder controls }}}|| [http://www.autoitscript.com/forum/topic/130573-guifinderau3-v2/ 130573] || [http://code.google.com/p/m-a-t/downloads/detail?name=GUIFinder2.zip GUIFinder2.zip ] ||
 || [http://sourceforge.net/p/graphau3/home/ Graph theory] ||{{{ Not just a proof of theory }}}|| [http://www.autoitscript.com/forum/topic/125584-graph-theory/ 125584] || [http://sourceforge.net/projects/graphau3/files/ Download page] ||
 ||{{{ GUIListView.au3 additions }}}||{{{ Additional functions for using tile view }}}|| [http://www.autoitscript.com/forum/topic/index.php?showtopic=123470 123470] || [http://code.google.com/p/m-a-t/downloads/detail?name=GUIListView_Additions.zip GUIListView_Additions.zip] ||
 ||{{{ CmdLine.au3 }}}||{{{ Making command line arguments easy }}}|| [http://www.autoitscript.com/forum/index.php?showtopic=123438 123438] || N/A ||
