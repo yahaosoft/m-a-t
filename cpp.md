@@ -1,0 +1,82 @@
+# The most basic tutorial you will get #
+
+Ok, so you don't have a clue what you are doing. This tutorial will help you to get a very basic understanding of how to use visual studio in order to make a Hello World program. If at any point here I appear patronising then that means you know something, hopefully a good thing.
+
+First, we need to open the Integrated Developer Environment (IDE). This is usually done via the "Start" menu (NB: on vista and later the button no longer has "Start" written on it).
+
+![http://lh3.ggpht.com/_6pbM80_YaZ4/TC3qi0sKQoI/AAAAAAAAAMQ/XNzkxCQYeZk/ScreenShot00001.jpg](http://lh3.ggpht.com/_6pbM80_YaZ4/TC3qi0sKQoI/AAAAAAAAAMQ/XNzkxCQYeZk/ScreenShot00001.jpg)
+
+Once visual studio has loaded (there will be a little splash for a while) then you will be faced with the welcome screen. We want to start a new project:
+
+![http://lh6.ggpht.com/_6pbM80_YaZ4/TC3qjEg0UTI/AAAAAAAAAMU/LWEvcECywJs/ScreenShot00002.jpg](http://lh6.ggpht.com/_6pbM80_YaZ4/TC3qjEg0UTI/AAAAAAAAAMU/LWEvcECywJs/ScreenShot00002.jpg)
+
+Clicking this button will bring up a new window called "New Project" which is a simple wizard for loading the basic project templates. Unlike AutoIt, you can't have a single .cpp file and expect it to work, and the templates will make these for you (don't edit them, don't even look at them until you understand c++).
+
+We want to make a win32 project. This will use the native winapi rather than ms' Common Language Runtime (CLR). To do this select win32 from the left treeview:
+
+![http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qjT6-EiI/AAAAAAAAAMY/fuudGy3viE4/ScreenShot00003.jpg](http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qjT6-EiI/AAAAAAAAAMY/fuudGy3viE4/ScreenShot00003.jpg)
+
+This will change the main list, so that it will now have 2 options. A "Win32 console application" is a program that uses a Console User Interface (CUI) rather than a Graphical User Interface (GUI). GUI's are a lot more complex, so we will be using a CUI:
+
+![http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qjYT68RI/AAAAAAAAAMc/oc09mbcV-7Q/ScreenShot00004.jpg](http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qjYT68RI/AAAAAAAAAMc/oc09mbcV-7Q/ScreenShot00004.jpg)
+
+Next you need to enter a name for the project. This will be the name of the folder that the files will be stored in within the "Location" directory. We will be calling our project "HelloWorld":
+
+![http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qjvz4GBI/AAAAAAAAAMg/BOqrCBtx6sw/ScreenShot00005.jpg](http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qjvz4GBI/AAAAAAAAAMg/BOqrCBtx6sw/ScreenShot00005.jpg)
+
+Double check you've done everything right and then click the button that says "Ok" which will take you to the next step in making the project.
+
+![http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qp9ZbC8I/AAAAAAAAAMk/_x0fkMOeAGU/ScreenShot00006.jpg](http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qp9ZbC8I/AAAAAAAAAMk/_x0fkMOeAGU/ScreenShot00006.jpg)
+
+The next dialog is the "Win32 Application Wizard". This has more options specific to win32 applications, and should look like this:
+
+![http://lh3.ggpht.com/_6pbM80_YaZ4/TC3qqGGpNhI/AAAAAAAAAMo/HVLfZjilLMw/ScreenShot00007.jpg](http://lh3.ggpht.com/_6pbM80_YaZ4/TC3qqGGpNhI/AAAAAAAAAMo/HVLfZjilLMw/ScreenShot00007.jpg)
+
+Clicking next takes you to the next page, and you should check to make sure all the settings are as you want them to be. You want a console application with a pre-compiled header.
+
+![http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qqPc_gQI/AAAAAAAAAMs/jhbDYPvnlok/ScreenShot00008.jpg](http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qqPc_gQI/AAAAAAAAAMs/jhbDYPvnlok/ScreenShot00008.jpg)
+
+And now we have a project! You will now get the main code window with some code in a file called "HelloWorld.cpp". This is the only file we need to edit, and should look something like this:
+
+![http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qqYa2K7I/AAAAAAAAAMw/xkV4gHo9ygI/ScreenShot00009.jpg](http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qqYa2K7I/AAAAAAAAAMw/xkV4gHo9ygI/ScreenShot00009.jpg)
+
+If it doesn't then you've managed to mess up before even seeing code. Now we will make it do something. The "printf" command will print a string to the console in a similar way to the AutoIt ConsoleWrite function, although it also works a bit like the StringFormat function at the same time. This is useful as we no longer need to keep adding @CRLF all the time, we can use the escape sequence instead: "\r\n". You may recognize this from any RegEx work you've done in AutoIt. @CRLF is, in fact, 2 characters (@CR and @LF) stuck together. I can prove this by running the following line of AutoIt code:
+
+```
+MsgBox(0, "Testing", StringLen(@CRLF))
+```
+
+It will return 2. Similarly, \r\n is 2 characters - \r and \n. \r is the same as @CR and \n is the same as @LF. Simple? These are known as End Of Line (EOL) characters as they end a line.
+
+We want to send the string "Hello World" to the console, and then a EOL character so that when we write another line of code it will be on a new line. To do this we type in: "printf("Hello World\r\n");" inside the "int _tmain" function, before the return. Your code should now look like this:_
+
+![http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qq603vEI/AAAAAAAAAM0/ixjTg-kNJq0/ScreenShot00010.jpg](http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qq603vEI/AAAAAAAAAM0/ixjTg-kNJq0/ScreenShot00010.jpg)
+
+Congratulations. We now have have a complete program. We now want to test it. Because c++ is compiled, not interpreted like AutoIt is, running will take slightly longer to start up. Once it's compiled it should be faster though (provided it's written properly). Visual studio gives you another option though, called "Debugging". This compiles the application with a few extra bits that make it possible to find out more about errors when they occur. Until you have finished a program and are sure that it is bug free you should use this option. To start debugging click the little green triangle, or hit the F5 key (At the top of your keyboard in the middle):
+
+![http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qv3dPUvI/AAAAAAAAAM4/mcJFZ1mxtvo/ScreenShot00011.jpg](http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qv3dPUvI/AAAAAAAAAM4/mcJFZ1mxtvo/ScreenShot00011.jpg)
+
+You will now get a funny dialog that won't make much sense to you. Just check the "Do not show this dialog again" box and click "Yes" button:
+
+![http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qwrEN34I/AAAAAAAAAM8/wnb_iNC8KhY/ScreenShot00012.jpg](http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qwrEN34I/AAAAAAAAAM8/wnb_iNC8KhY/ScreenShot00012.jpg)
+
+Your program will now compile. This is quite a long process, but you'll have a little log window to tell you what's happening. The output should be this:
+
+```
+1>------ Build started: Project: HelloWorld, Configuration: Debug Win32 ------
+1>  HelloWorld.cpp
+1>  HelloWorld.vcxproj -> c:\users\new user\documents\visual studio 2010\Projects\HelloWorld\Debug\HelloWorld.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+```
+
+And then the program will run. What!? Where did it go? Did you just see a little black box flash and then disappear? You should have. What happened was that the program ran, did what you asked it to do, and then finished before you could even see what it had done. What we actually want it to do is wait for us to tell it to close. We will do this by reading a character from the console, given by the user. To do this we use the getchar function. Usually this returns the character code of the character the user entered, but we are going to ignore that for now. The function does not need any parameters, so all we do is add this line: "getchar();" after our printf line and before the return line. The code will now be:
+
+![http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qwuERCeI/AAAAAAAAANA/v9cgTTQcGk4/ScreenShot00013.jpg](http://lh5.ggpht.com/_6pbM80_YaZ4/TC3qwuERCeI/AAAAAAAAANA/v9cgTTQcGk4/ScreenShot00013.jpg)
+
+We can now try again. Click on the green triangle or hit F5 like you did a few seconds ago. It will build the executable and run it again. You will now get the result of your first c++ hello world program:
+
+![http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qw4frg-I/AAAAAAAAANE/CTpOMAOd7V0/ScreenShot00014.jpg](http://lh4.ggpht.com/_6pbM80_YaZ4/TC3qw4frg-I/AAAAAAAAANE/CTpOMAOd7V0/ScreenShot00014.jpg)
+
+Well done. You have completed you first tutorial. That wasn't so hard was it? Next time we'll look at loops and variables :)
+
+Mat

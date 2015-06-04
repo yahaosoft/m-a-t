@@ -1,0 +1,310 @@
+# Advanced Rounding #
+The current autoit "round" function is somewhat limited, although you may ask why... It is. Firstly, the helpfile gives absolutely no indication of how it rounds, so only testing could tell me that! You may also wander why such trivial information is needed as to how it rounds... Theres only one way to round anyway! WRONG! Thats why this is here. To provide that added bit of advancedness that some one may need if they're doing something in proper maths.<p>I first came across this whilst looking on an american metereology (I think...) website. They had rounded "-1.5" to "2". That got me thinking on how you are actually supposed to do it. My maths teacher said "-1.5" should be "-1", as you always round up. So I did the sensible thing and wikipedia'd it. Turns out there are numurous directions that you can round in, as well as even more ways to solve "Tie breaks".<br>
+<br>
+<hr />
+
+<h2>The importance of rounding accurately</h2>
+At student level, pre-rounding in your exams will miss you out on a mark. But thats there for a reason! correctly rounding makes a huge difference, especially when you are dealing with engineering, and the connection between theory and reality. Imagine a circle where pi is "about three". You can't do it. although 3.141 would round to 3, the difference is VERY significant. The difference between the rounded value and the true value is called the "rounding error". Where many calculations are done in sequence rounding can have a very significant effect on the result. A famous instance involved a new index set up by the Vancouver Stock Exchange in 1982. It was initially set at 1000.000 but after 22 months had fallen to about 520 whereas the market was doing well. The problem was caused by the index being held to 3 decimal places, always rounded down. The index was recalculated thousands of times daily and the errors accumulated. Recalculating with better rounding gave a value of 1098.892<br>
+<br>
+<hr />
+
+<h2>Sources and alternative reading</h2>
+As with most projects, I haven't made all this up! I'm not even the first to have made a list like this. As far as I know, i'm the first to have implemented something like this in autoit, and the first (that I have found) to show all this in plain understandable english. Nevertheless, this is a topic that makes very interesting reading, so here is a small list of what I have read, including associated subjects<br>
+<br>
+<table border='1'>
+<tr>
+<th>Name</th>
+<th>Link/url</th>
+<th>Author</th>
+<th>Notes</th>
+</tr>
+<tr>
+<td>Wikipedia</td>
+<td><a href='http://en.wikipedia.org/wiki/Directed_rounding'><a href='http://en.wikipedia.org/wiki/Directed_rounding'>http://en.wikipedia.org/wiki/Directed_rounding</a></a></td>
+<td>Various</td>
+<td>A good, but not all inclusive list</td>
+</tr>
+<tr>
+<td>Rounding and truncating functions</td>
+<td><a href='http://homepage.smc.edu/kennedy_john/GALLERYROUND.PDF'><a href='http://homepage.smc.edu/kennedy_john/GALLERYROUND.PDF'>http://homepage.smc.edu/kennedy_john/GALLERYROUND.PDF</a></a></td>
+<td>John Kennedy</td>
+<td>A very interesting read into the basics of rounding funtions, particularly in computing</td>
+</tr>
+<tr>
+<td>Rounding Algorithms 101</td>
+<td><a href='http://www.diycalculator.com/popup-m-round.shtml'><a href='http://www.diycalculator.com/popup-m-round.shtml'>http://www.diycalculator.com/popup-m-round.shtml</a></a></td>
+<td>Unknown (or I couldn't find a reference anywhere)</td>
+<td>A good list of the different directions and tie breaks, also contains binary rounding</td>
+</tr>
+</table>
+
+<hr />
+
+<h2>Contents</h2>
+<ul>
+<li><a href='#top'>Advanced Rounding</a>
+<ul>
+<li><a href='#intro'>Introduction</a></li>
+<li><a href='#comments'>Ratings and comments</a></li>
+<li><a href='#importance'>The importance of rounding</a></li>
+<li><a href='#sources'>Sources and alternative reading</a></li>
+<li><a href='#contents'>Contents</a></li>
+<li><a href='#types-intro'>Types</a>
+<ul>
+<li><a href='#types-dp'>Decimal Places</a></li>
+<li><a href='#types-sf'>Significant figures</a></li>
+<li><a href='#types-d'>All Figures</a></li>
+</ul>
+</li>
+<li><a href='#direction-intro'>Directions</a>
+<ul>
+<li><a href='#direction-nearest'>Nearest</a></li>
+<li><a href='#direction-up'>Up</a></li>
+<li><a href='#direction-down'>Down</a></li>
+<li><a href='#direction-trunc'>Towards zero</a></li>
+<li><a href='#direction-ntrunc'>Away from zero</a></li>
+<li><a href='#direction-dither'>Dithering</a></li>
+</ul>
+</li>
+<li><a href='#tie-intro'>Tie Break Methods</a>
+<ul>
+<li><a href='#tie-up'>Up</a></li>
+<li><a href='#tie-down'>Down</a></li>
+<li><a href='#tie-tozero'>Towards zero</a></li>
+<li><a href='#tie-fromzero'>Away from zero</a></li>
+<li><a href='#tie-even'>Even</a></li>
+<li><a href='#tie-odd'>Odd</a></li>
+<li><a href='#tie-stochastic'>Stochastic</a></li>
+<li><a href='#tie-alternative'>Alternative</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<hr />
+
+<h2>Types of Rounding</h2>
+<ul>
+<li><a href='#types-Intro'>Types introduction</a></li>
+<li><a href='#types-dp'>Decimal places</a></li>
+<li><a href='#types-sf'>Significant Figures</a></li>
+<li><a href='#types-d'>Digits</a></li>
+</ul>
+Normally, the round function rounds to x decimal places. This is fine, until you begin to consider rounding large ranges of numbers. Here you need a more general purpose and uniform method of rounding, this is where significant figures comes in. These are the two types of rounding, and each has its own advantages as well as drawbacks, that is why you need both!<br>
+<br>
+I have also decided to add in a third type, digits. This is very similar to significant figures, only counts 0 as a digit. As a result, it gives a much more uniform and standard result. My ideas and logic behind this is explained more in detail under the <i>Digits section</i>
+<table cellpadding='8' border='1'>
+<tr>
+<th>&#160;<br />
+Precision</th>
+<th>Rounded to<br />
+significant digits</th>
+<th>Rounded to<br />
+decimal places</th>
+<th>Rounded to<br />
+Digits</th>
+</tr>
+<tr>
+<td>Five</td>
+<td align='center'>12.345</td>
+<td align='center'>12.34500</td>
+<td align='center'>12.345</td>
+</tr>
+<tr>
+<td>Four</td>
+<td align='center'>12.34</td>
+<td align='center'>12.3450</td>
+<td align='center'>12.34</td>
+</tr>
+<tr>
+<td>Three</td>
+<td align='center'>12.3</td>
+<td align='center'>12.345</td>
+<td align='center'>12.3</td>
+</tr>
+<tr>
+<td>Two</td>
+<td align='center'>12</td>
+<td align='center'>12.34</td>
+<td align='center'>12</td>
+</tr>
+<tr>
+<td>One</td>
+<td align='center'>10</td>
+<td align='center'>12.3</td>
+<td align='center'>10</td>
+</tr>
+<tr>
+<td>Zero</td>
+<td align='center'>n/a (would return 0)</td>
+<td align='center'>12</td>
+<td align='center'>n/a (would return 0)</td>
+</tr>
+</table>
+
+<hr />
+
+<h3>Decimal places</h3>
+Decimal places are the most common form of rounding in simple maths, and simply refers to the amount of digits after the decimal point. It is easy to use as it has no hidden rules regarding leading or trailing zeros, and so you just need to find the decimal point, and count after it! A standard precision is 2 decimal places, often shown as (2dp) after the amount. You can also have 0dp, which refers to the nearest integer, as well as negatives, so 11 to -1dp is 10. (provided your direction is nearest, but thats a different story)<br>
+<br>
+Decimal points is mostly used in financial and engineering applications where the number of digits in the fractional part has particular importance. An easy example is of course money, where $5.678 needs to be rounded to 2dp, and also $50334.678 does to. Here significant figures would lead to differences of potentially millions of dollars.<br>
+<br>
+<hr />
+
+<h3>Significant Figures</h3>
+Significant figures (or significant digits) is the second method of rounding, where all digits before and after the decimal point count, except leading and trailing zeros. It is a more scientific approach than the simple decimal places, and provided you can remember the rules, is not much harder. A typical accuracy is 3 significant figures (3sf), but the amount of precision you need depends entirely on how high you intend to be counting! 123456.345 to 3sf is 123000, giving a substantial round error.<br>
+<br>
+Significant figures are a lot more important in computing and floating point arithmetic, however, where 15 digit precision (AutoIt) does not care for any decimal places. In some ways, you could argue that the computer naturally rounds when it reaches the 15 digit limit, when computing mathematical functions such as square roots, logarithms, and sines. These functions will often return irrational numbers, so arguing that no rounding takes place is stupid.<br>
+<br>
+<hr />
+
+<h3>Digit precision (All figures)</h3>
+Digit precision is a made up version of Significant figures - Although it may be already used in several places already. It works on the idea that sometimes you need to have exactly <i>x</i> digits. regardless of if its zero or not. As a result, siginficant figures are not exactly what you need, and decimal places are useless. It is actually much simpler coding than significant figures for me, as the way I am currently dealing with types is to change the places value, and do it to decimal places anyway. For my significant figures code, this meant checking for zeros etc. For digit precision, all I need to do is find the decimal point (if it is used), and subtract the character offset from the places parameter.<br>
+<br>
+<pre><code>$nPlaces += StringLen (StringRegExpReplace (StringReplace (StringReplace ($nNum, ".", ""), "-", ""), "\A(0*)(.*)", "\1"))<br>
+$nPlaces -= StringLen (StringRegExpReplace (StringReplace ($nNum, "-", ""), "\..*", ""))<br>
+</code></pre>
+
+The above code is the code used in my function to change the $nPlaces value if the type parameter is 2 (significant figures). Now compare that code to the following. You should see that they are the same, only the significant figures code has an extra line. This is becouse I made it so it adds the zeros on seperately to adjusting the places value for the decimal point. In fact I wrote the sf code first, and added the digits code in afterwards, adding just 5 lines onto the overal script size.<br>
+<br>
+<pre><code>$nPlaces -= StringLen (StringRegExpReplace (StringReplace ($nNum, "-", ""), "\..*", ""))<br>
+</code></pre>
+
+<hr />
+
+<h2>Directional rounding</h2>
+<ul>
+<li><a href='#direction-intro'>Directions introduction</a></li>
+<li><a href='#direction-nearest'>Nearest</a></li>
+<li><a href='#direction-up'>Up</a></li>
+<li><a href='#direction-down'>Down</a></li>
+<li><a href='#direction-trunc'>Towards zero</a></li>
+<li><a href='#direction-ntrunc'>From zero</a></li>
+<li><a href='#direction-dither'>Dithering</a></li>
+</ul>
+
+Directional rounding does exactly what it sounds like it does! Rounds in the given direction. You will probably have been taught to roundto the nearest <i>x</i>dp, and this is still the default way to do it (1:nearest). However, did you know that in the USA, you can "round" your tax figure from $5.85 to a more "round" figure of $5.00. This is not rounding to the nearest at all! but rounding <a href='#direction-down'>down</a>. This is just another example of a direction to round. I deal with 6 of them, the last is more advanced, and not a direction as such: <i>Dithering</i>
+<table cellpadding='8' width='100%' border='1' cellspacing='0'>
+<th>Direction</th>
+<th align='center'>5.6</th>
+<th align='center'>-5.6</th>
+<tr>
+<blockquote><td>Nearest</td>
+<td align='center'>6</td>
+<td align='center'>-6</td>
+</tr>
+<tr>
+<td>Up</td>
+<td align='center'>6</td>
+<td align='center'>-5</td>
+</tr>
+<tr>
+<td>Down</td>
+<td align='center'>5</td>
+<td align='center'>-6</td>
+</tr>
+<tr>
+<td>Towards Zero</td>
+<td align='center'>5</td>
+<td align='center'>-5</td>
+</tr>
+<tr>
+<td>From Zero</td>
+<td align='center'>6</td>
+<td align='center'>-6</td>
+</tr>
+<tr>
+<td align='center'>NB. I have not included dithering, as it is based on chance!</td>
+</tr>
+</table></blockquote>
+
+<hr />
+
+<h3>Nearest</h3>
+Rounding to the nearest value is the standard and accepted way to round in maths. What it involves is checking if the fraction part is greater than 0.5, and if it is then round up. Likewise, if it is less than 0.5 then you round down (this changes slightly with negative numbers but the theory remains the same). If it is exactly equal to 0.5, then there is a <a href='#Tie-intro'>tie break</a>. This method is simple, and also reasonably accurate, as you have a &plusmn;0.5 degree of precision. rather than the &plusmn;1 degree that you could get always rounding in a given direction.<br>
+<br>
+<hr />
+
+<h3>Up</h3>
+Otherwise known as "ceiling", rounding up means even a value of 2.01 will round up to 3. Rounding up is defined as being rounding always towards +&infin;, so -2.5 would round to 2 - NOT 3!! In programming, this definition is re worded to be: "Returns the smallest integral value that is not less than x." (c++) and "Returns a number rounded up to the next integer." (AutoIt). These definitions all mean the same thing, but show there are several ways of looking at the problem and therefore several ways to create the function "ceiling". It also has another mathematical comparison in the "Greatest Integer" function.<br>
+<br>
+<hr />
+
+<h3>Down</h3>
+Like with rounding up, rounding down has a relative function in computing known as "floor" (Quite easy to remember ceiling is up, floor is down!), and both work in the same way, only in completely opposite directions! Rounding down will always take you towards -&infin;, so -2.5 = -3 and 2.5 = 2.<br>
+<br>
+<hr />
+
+<h3>Towards Zero</h3>
+Rounding towards zero (or "Truncating") differs from rounding down only when you consider negative numbers. -3.5 rounded down is -4, whereas -3.5 rounded towards zero is -3. In computing, it is the same as the "int" function. Truncating literally means "cutting off", and this is exactly what it appears to be in numbers. We are simply removing anything after the decimal point (or any other point, but that doesn't matter).<br>
+<br>
+<hr />
+
+<h3>Away From Zero</h3>
+Rounding away from zero is exactly the opposite of rounding towards zero. I am running out of interesting things to say halway through, so I included the lat (and this) sentence to make it look like I have written lots. This is also the same as using the ceiling functions where <i>x</i> &gt; 0 and the floor function where <i>x</i> &lt; 0. Alternatively you can consider it to be Towards zero with 1 either added or taken away depending on the sign of <b>x</b>.<br>
+<br>
+<hr />
+
+<h3>Dithering</h3>
+Dithering is the term used to describe using chance and statistics to decide which way to round. It differs from from the previous 4 directions as you are not garaunteed to get the same results every time. This means there is an element of chance involved, and so <i>technically</i> there is a chance it could always round down. However, the method means that overall after performing thousands of rounding functions, it is actually the most accurate of the directions.<br>
+<br>
+The method it uses is to round each value <i>y</i> upwards with probability equal to its fraction, and round it downwards with the complement of that probability. Although this may sound complex, its not. Lets take 4.34: There is a 34% chance that it will round up - and a 66% chance of rounding down. As you can see, it is more likely to round to the nearest, but there is about a 1 in 3 chance it will round up!<br>
+<br>
+An example of when dithering is useful: suppose that <i>y</i> is an accurate measurement of an audio signal, which is being rounded to an integer <i>q</i> in order to reduce the storage or transmission costs. If <i>y</i> changes slowly with time, any of the rounding method above will result in <i>q</i> being completely constant for long intervals, separated by sudden jumps of &plusmn;1. When the <i>q</i> signal is played back, these steps will be heard as a very disagreeable noise, and any variations of the original signal between two integer values will be completely lost.<br>
+<br>
+<hr />
+
+<h2>Tie Breaks</h2>
+<ul>
+<li><a href='#tie-up'>Up</a></li>
+<li><a href='#tie-down'>Down</a></li>
+<li><a href='#tie-tozero'>Towards zero</a></li>
+<li><a href='#tie-fromzero'>Away from zero</a></li>
+<li><a href='#tie-even'>Even</a></li>
+<li><a href='#tie-odd'>Odd</a></li>
+<li><a href='#tie-stochastic'>Stochastic</a></li>
+<li><a href='#tie-alternative'>Alternative</a></li>
+</ul>
+
+Tie breaks is the name given to the circumstance where the digit you want to round is 0.5. This means it is exactly half way between 0 and 1! The most common way to deal with this is to round it up, however, there are a lot of other methods to deal with it. Most correspond to a direction, but there are also a few more advanced ones such as <i>stochastic</i> and <i>alternative</i> that offer more reliable or accurate solutions.<br>
+<br>
+<hr />
+
+<h3>Round half up</h3>
+As said in the introduction, many of the tie breaking methods refer towards a direction. Round half up is a good example of this. It is also the standard way to deal with tie breaks (at least how I learnt it, some people argue the default way to do it is to to <a href='#tie-fromzero'>round half away from zero</a>). Quite simply, if there is a tie break, then you add a half to the number. Rounding to the nearest with half up as the tie break method is called <i>asymmetric rounding</i>
+
+<hr />
+
+<h3>Round half down</h3>
+Like Round half up, rounding down on a tie break is a simple and effective way to deal with tie breaks. Why rounding up was used as opposed to rounding down I do not know, but they both provide exactly the same accuracy in completely opposite directions. As a result, however, rounding half down is a rarely seen method nowadays.<br>
+<br>
+<hr />
+
+<h3>Round half towards zero</h3>
+As with rounding half down, rounding half towards zero is another rarely used way to resolve tie breaks. However, there are some contexts where it could be used. I just can't think of them right now. Quite simply if <i>y</i> &gt; 0 Then <i>y</i> -= 0.5, if <i>y</i> &lt; 0 Then <i>y</i> += 0.5.<br>
+<br>
+<hr />
+
+<h3>Round half away from zero</h3>
+The other tie-breaking method commonly taught and used is the round half away from zero, namely: If the fraction of y is exactly .5, then q = y + 0.5 if y is positive, and q = y - 0.5 if y is negative. For example, 23.5 gets rounded to 24, and -23.5 gets rounded to -24. This method treats positive and negative values symmetrically, and therefore is free of overall bias if the original numbers are positive or negative with equal probability. However, this rule will still introduce a positive bias for positive numbers, and a negative bias for the negative ones.<br>
+<br>
+<hr />
+
+<h3>Round to even</h3>
+A tie-breaking rule that is even less biased is round half to even, namely: If the fraction of y is 0.5, then <i>q</i> is the even integer nearest to <i>y</i>. Thus, for example, +23.5 becomes +24, +22.5 becomes +22, -22.5 becomes -22, and -23.5 becomes -24. This variant of the round-to-nearest method is also called unbiased rounding, convergent rounding, statistician's rounding, Dutch rounding, Gaussian rounding, or bankers' rounding. For most reasonable distributions of <i>y</i> values, the expected (average) value of the rounded numbers is essentially the same as that of the original numbers, even if the latter are all positive (or all negative).<br>
+<br>
+<hr />
+
+<h3>Round to odd</h3>
+Exactly the same statistically as round to even, and therefore with exactly the same advantages - Round to odd preovides a way to do it slightly differently, which may make some difference to your final results.<br>
+<br>
+<hr />
+
+<h3>Stochastic rounding</h3>
+Another unbiased tie-breaking method is stochastic rounding: If the fractional part of y is .5, choose q randomly among y+0.5 and y-0.5, with equal probability. Like round-half-to-even, this rule is essentially free of overall bias; but it is also fair among even and odd q values. On the other hand, it introduces a random component into the result: performing the same computation twice on the same data may yield two different results. Note that this has exactly the same effect as Dithering on a .5 result (they do the same calculations).<br>
+<br>
+<hr />
+
+<h3>Round Alternatively</h3>
+The last method is rounding alternatively up and then down. Theoretically, this should provide exactly the same average as it should: 2.5 rounded twice alternatively gives 2 and 3. (2 + 3) / 2 = <b>2.5</b>. This is a very simple code too, as there is a single global variable that is incremented by 1 every time this method is called.

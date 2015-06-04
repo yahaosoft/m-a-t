@@ -1,0 +1,126 @@
+# Common Errors #
+AutoIt's error checking sometimes returns encrypted messages that need to be de-ciphered before you can understand the error and correct. A lot of the time I find I can draw easy links between what the error message is and what the actual cause of the error is - and thats what i'm going to show on this page. Hopefully this should help you trace errors a lot more efficiently, and stop many of the "No idea whats wrong..." threads that are currently cluttering up the general help and support forum.
+
+<ol>
+<li>Common Errors</li>
+<li>The basics of the error dialog</li>
+<li>Error parsing function call</li>
+<li>Error in expression.</li>
+<li>Unable to parse line</li>
+<li>Unterminated string</li>
+<li>Missing separator character after keyword</li>
+<li>Badly formated variable or macro</li>
+</ol>
+
+## The basics of the error dialog ##
+Once you know what the dialogs trying to tell you, it makes life much easier, and since this remains completely undocumented throughout AutoIt, I think its a good idea to explain it here.
+
+Firstly, there are two methods for retreiving errors. The default is through a message box, but you can also use the "/ErrToSTDOut" command line parameter to have autoit redirect this to the console. I prefer the second method, as allows me to copy and paste the message from the debug window. This is a typical error message:
+
+```
+C:\test.au3 (1) : ==> Error parsing function call.:
+MsgBox ((0, "", "")
+MsgBox ((0, "", ""^ ERROR
+```
+
+<ul>
+<li><code>"C:\test.au3"</code> is the file name, and believe it or not, this is VERY important information. When you begin to build large multi file projects, errors can spring out at you from millions of different places, so its important you know exactly where to look.</li>
+<li><code>"(1)"</code> is the line number (in this case the first line.) I usually open up the document and scroll to the line before I even consider what the error is as most errors are becouse of a previous error!</li>
+<li><code>"; ==&gt;"</code> is worthless, but makes it look pretty</li>
+<li><code>"Error parsing function call.:"</code> This is the description of the error, it can be a lot of things, and usually isn't very descriptive!</li>
+<li><code>"MsgBox ((0, "", "")"</code> is the line in full.</li>
+<li><code>"MsgBox ((0, "", ""^ ERROR"</code> is the line, but trimmed and with the <code>"^ Error"</code> sign showing the offset of the error</li>
+</ul>
+## Error parsing function call. ##
+This is essentially telling you that you have unbalanced brackets. As you can see from the example below, it is a very easy mistake to make, but also a very easy to solve one. The only other cunfusing element is that it sets the "^ERROR" to the end of the string, whereas the problem is usually at the beginning.
+```
+C:\test.au3 (1) : ==> Error parsing function call.:
+MsgBox ((0, "", "")
+MsgBox ((0, "", ""^ ERROR
+```
+
+another example, once again with the "^Error" completely out of place!
+```
+C:\test.au3 (1) : ==> Error parsing function call.:
+MsgBox (0, "", ""
+MsgBox (0, "", ^ ERROR
+```
+
+And another,  this time with brackets completely wrong, and "^Error" clueless.
+```
+C:\test.au3 (1) : ==> Error parsing function call.:
+MsgBox ) (0, "", "")
+^ ERROR
+```
+
+## Error in expression. ##
+Usually a typo, and very similar to error parsing function call. I find it occurs mostly when I enter double commas (",").
+```
+C:\test.au3 (1) : ==> Error in expression.:
+MsgBox (0, "",, "")
+MsgBox (0, "",^ ERROR
+```
+
+The other time is when you miss out a comma completely:
+```
+C:\test.au3 (1) : ==> Error in expression.:
+MsgBox (0"", "", "")
+MsgBox (^ ERROR
+```
+
+## Unable to parse line. ##
+This is very similar to the Error parsing function call, except on line with no functions! It can occur on function lines though, and also usually is to do with brackets:
+```
+C:\test.au3 (1) : ==> Unable to parse line.:
+(MsgBox (0, "", "")
+^ ERROR
+```
+
+or
+```
+C:\test.au3 (1) : ==> Unable to parse line.:
+5+2)
+^ ERROR
+```
+
+essentially at any point where you have not used the brackets properly you will get a "parsing" error.
+
+## Unterminated string. ##
+This is a much easier one to understand, basicaly, the quatation marks do not match, resulting in the rest of the line being a string. You do not get an "^ERROR" sign to help you, but any editor with syntax highlighting will allow you to very quickly identify the problem.
+```
+C:\test.au3 (1) : ==> Unterminated string.:
+MsgBox (0, "", """)
+```
+
+## Missing separator character after keyword ##
+Although it sounds complicated, more often than no you have entered an invalid keyword! The following displays the error:
+```
+C:\test.au3 (1) : ==> Missing separator character after keyword.:
+MsgBox (defaultn, "", "")
+MsgBox (defaultn^ ERROR
+```
+
+but by removing the "n", the error goes away. This is simply a typo on your part.
+
+## Badly formated variable or macro ##
+Once again probably a typo, but I find it occurs when I leave the dollar sign ("$") on its own:
+```
+C:\test.au3 (1) : ==> Badly formated variable or macro.:
+MsgBox (default, "", $)
+MsgBox (default, "", ^ ERROR
+```
+
+or the at sign ("@")
+```
+C:\test.au3 (1) : ==> Badly formated variable or macro.:
+MsgBox (default, "", @)
+MsgBox (default, "", ^ ERROR
+```
+
+Alternatively you have entered a non word character ("A-Z" or "a-z" or "_" or 0-9), this happens if you hold shift a bit early and try to enter a number:_
+
+```
+C:\test.au3 (1) : ==> Unable to parse line.:
+MsgBox (default, "", @IPAddress!)
+MsgBox (default, "", @IPAddress^ ERROR
+```
